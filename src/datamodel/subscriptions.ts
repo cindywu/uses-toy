@@ -2,7 +2,7 @@ import type { Reflect } from "@rocicorp/reflect";
 import { useSubscribe } from "replicache-react";
 import { getClientState, clientStatePrefix } from "./client-state";
 import { getShape, shapePrefix } from "./shape";
-import { getItem, itemPrefix } from "./item";
+import { itemPrefix } from "./item";
 import type { M } from "./mutators";
 
 export function useItemIDs(reflect: Reflect<M>) {
