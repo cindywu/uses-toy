@@ -4,32 +4,12 @@ import { randInt } from "../util/rand";
 const colors = [
   "#f94144",
   "#f3722c",
-  "#f8961e",
-  "#f9844a",
-  "#f9c74f",
-  "#90be6d",
-  "#43aa8b",
-  "#4d908e",
-  "#577590",
-  "#277da1",
+  "#f8961e"
 ];
 const avatars = [
-  ["🐶", "Puppy"],
-  ["🐱", "Kitty"],
-  ["🐭", "Mouse"],
-  ["🐹", "Hamster"],
-  ["🐰", "Bunny"],
-  ["🦊", "Fox"],
-  ["🐻", "Bear"],
-  ["🐼", "Panda"],
-  ["🐻‍❄️", "Polar Bear"],
-  ["🐨", "Koala"],
-  ["🐯", "Tiger"],
-  ["🦁", "Lion"],
-  ["🐮", "Cow"],
-  ["🐷", "Piggy"],
-  ["🐵", "Monkey"],
-  ["🐣", "Chick"],
+  ["🐶", "Mark"],
+  ["🐱", "Elliott"],
+  ["🐭", "Cindy"]
 ];
 
 import { z } from "zod";

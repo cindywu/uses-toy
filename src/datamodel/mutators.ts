@@ -14,6 +14,11 @@ import {
   rotateShape,
   initShapes,
 } from "./shape";
+import {
+  putItem,
+  deleteItem,
+  initItems,
+} from "./item";
 
 export type M = typeof serverMutators;
 
@@ -29,6 +34,9 @@ export const serverMutators = {
   overShape,
   selectShape,
   initShapes,
+  createItem: putItem,
+  deleteItem,
+  initItems,
   nop: async (_: WriteTransaction) => {},
 };
 

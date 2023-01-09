@@ -5,7 +5,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import styles from "./nav.module.css";
 import { randomShape } from "../datamodel/shape";
-import { useUserInfo } from "../datamodel/subscriptions";
+import { randomItem } from "../datamodel/item";
+import { useUserInfo, useItemIDs } from "../datamodel/subscriptions";
 import type { M } from "../datamodel/mutators";
 import { OnlineStatus } from "./online-status";
 
@@ -19,6 +20,7 @@ export function Nav({ reflect, online }: NavProps) {
   const [shareVisible, showShare] = useState(false);
   const urlBox = useRef<HTMLInputElement>(null);
   const userInfo = useUserInfo(reflect);
+  const itemIDs = useItemIDs(reflect);
 
   useEffect(() => {
     if (shareVisible) {
@@ -30,8 +32,29 @@ export function Nav({ reflect, online }: NavProps) {
     reflect.mutate.createShape(randomShape());
   };
 
+  function handleCreateItem(){
+    reflect.mutate.createItem(randomItem());
+  };
+
   return (
     <>
+      <div>
+        add item
+        <button
+          onClick={() => handleCreateItem()}
+        >
+          generate random item
+        </button>
+        {itemIDs &&
+          itemIDs.map((id) => {
+            return (
+              <div key={id}>
+                {id}
+              </div>
+            )
+          })
+        }
+      </div>
       <div className={styles.nav} style={{}}>
         <div
           onClick={() => onRectangle()}
