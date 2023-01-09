@@ -1,0 +1,14 @@
+.container {
+  padding-top: 4rem;
+  background-color: #252528;
+  min-height: 100vh;
+  color: #CED2D9;
+  text-align: center;
+}
+
+.header {
+  font-size: 2rem;
+}
+.subHeader {
+  color: #777A80;
+}
