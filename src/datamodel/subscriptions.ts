@@ -2,7 +2,7 @@ import type { Reflect } from "@rocicorp/reflect";
 import { useSubscribe } from "replicache-react";
 import { getClientState, clientStatePrefix } from "./client-state";
 import { getShape, shapePrefix } from "./shape";
-import { itemPrefix } from "./item";
+import { getItem, itemPrefix } from "./item";
 import type { M } from "./mutators";
 
 export function useItemIDs(reflect: Reflect<M>) {
@@ -16,6 +16,16 @@ export function useItemIDs(reflect: Reflect<M>) {
       return items.map((k) => k.substring(itemPrefix.length));
     },
     []
+  );
+}
+
+export function useItemByID(reflect: Reflect<M>, id: string) {
+  return useSubscribe(
+    reflect,
+    async (tx) => {
+      return await getItem(tx, id);
+    },
+    null
   );
 }
 

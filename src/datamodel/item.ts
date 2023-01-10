@@ -25,7 +25,7 @@ export function putItem(
   tx: WriteTransaction,
   { id, item }: { id: string; item: Item }
 ): Promise<void> {
-  console.log('creating item...')
+  console.log('creating item...', item)
   return tx.put(key(id), item);
 }
 
