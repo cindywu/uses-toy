@@ -21,6 +21,7 @@ export function Nav({ reflect, online }: NavProps) {
   const urlBox = useRef<HTMLInputElement>(null);
   const userInfo = useUserInfo(reflect);
   const itemIDs = useItemIDs(reflect);
+  const inputElement = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (shareVisible) {
@@ -33,13 +34,21 @@ export function Nav({ reflect, online }: NavProps) {
   };
 
   function handleCreateItem(){
-    reflect.mutate.createItem(randomItem());
+    const thing : any = randomItem();
+    thing.item.name = inputElement?.current?.value;
+    reflect.mutate.createItem(thing);
   };
 
   return (
     <>
       <div>
         add item
+        <input
+          placeholder={"item name"}
+          ref={inputElement}
+          type="text"
+        >
+        </input>
         <button
           onClick={() => handleCreateItem()}
         >
