@@ -22,7 +22,7 @@ export default function Uses({ reflect } : UsesProps) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>Uses</div>
+      <div className="text-3xl">Uses</div>
       <div className={styles.subHeader}>Objects have memories</div>
       <div className={styles.itemsList}>
         {itemIDs && itemIDs.map((id) => {
