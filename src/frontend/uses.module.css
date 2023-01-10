@@ -1,9 +1,10 @@
 .container {
   padding-top: 4rem;
   background-color: #252528;
-  min-height: 100vh;
+  height: 100vh;
   color: #CED2D9;
   text-align: center;
+  overflow: auto;
 }
 
 .header {
@@ -23,15 +24,17 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  padding: 1rem 3rem;
-  margin: 1rem;
+  /* padding: 1rem 3rem;
+  margin: 1rem; */
+  padding: 1rem;
+  /* width: 100vw; */
 }
 
 .input {
   padding: .5rem 1rem;
-  background-color: hsl(0, 0%, 70%);
   outline: none;
   border: 1px solid transparent;
+  color: #252528;
 }
 
 .button {
