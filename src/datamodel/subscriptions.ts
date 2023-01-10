@@ -29,6 +29,17 @@ export function useItemByID(reflect: Reflect<M>, id: string) {
   );
 }
 
+export function useItems(reflect: Reflect<M>) {
+  return useSubscribe(
+    reflect,
+    async(tx) => {
+      const items = await tx.scan({ prefix: itemPrefix }).entries().toArray();
+      return items
+    },
+    []
+  )
+}
+
 export function useShapeIDs(reflect: Reflect<M>) {
   return useSubscribe(
     reflect,
