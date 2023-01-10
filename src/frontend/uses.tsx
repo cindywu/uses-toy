@@ -1,15 +1,33 @@
 import React, { useRef } from 'react'
 import styles from './uses.module.css'
-import { useItemIDs, useItemByID } from "../datamodel/subscriptions";
-import { randomItem } from "../datamodel/item";
+import { useItemByID, useItems } from "../datamodel/subscriptions";
+import { randomItem, itemPrefix } from "../datamodel/item";
 
 type UsesProps = {
   reflect: any
 }
 
 export default function Uses({ reflect } : UsesProps) {
-  const itemIDs = useItemIDs(reflect);
   const inputElement = useRef<HTMLInputElement>(null);
+  const items = timedSort(useItems(reflect))
+
+  function timedSort(items: any[]){
+    if (items.length === 0) {
+      return []
+    }
+    const start = Date.now()
+    const result = sortItems(items)
+    console.log(`Sorting items took ${Date.now() - start}ms`)
+    return result
+  }
+
+  function sortItems(items: any[]) {
+    return items.sort((a: any, b: any) => {
+      const aDate = new Date(a[1].createdAt)
+      const bDate = new Date(b[1].createdAt)
+      return bDate.getTime() - aDate.getTime()
+    })
+  }
 
   function handleCreateItem(){
     const thing : any = randomItem();
@@ -25,12 +43,12 @@ export default function Uses({ reflect } : UsesProps) {
       <div className="text-3xl">Uses</div>
       <div className={styles.subHeader}>Objects have memories</div>
       <div className={styles.itemsList}>
-        {itemIDs && itemIDs.map((id) => {
+        {items && items.map((item : any) => {
           return (
-            <div key={id}>
+            <div key={item[0]}>
               <Item
                 reflect={reflect}
-                itemID={id}
+                itemID={item[0].substring(itemPrefix.length)}
               />
             </div>
           )
@@ -64,6 +82,7 @@ function Item({ reflect, itemID }: ItemProps) {
     item &&
     <div>
       {item.name}
+      {/* <button className={"ml-4"} onClick={() => reflect.mutate.deleteItem(itemID)}>Delete</button> */}
     </div>
   )
 }
