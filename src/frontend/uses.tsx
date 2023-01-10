@@ -9,7 +9,7 @@ type UsesProps = {
 export default function Uses({ reflect } : UsesProps) {
 
   const itemIDs = useItemIDs(reflect);
-  console.log('itemIDs', itemIDs)
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>Uses</div>

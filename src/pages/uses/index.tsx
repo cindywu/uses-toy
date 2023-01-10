@@ -18,7 +18,7 @@ export default function Home() {
   const logger = new OptionalLoggerImpl(logSink);
 
   useEffect(() => {
-    const roomID = `KkdFw3`;
+    const roomID = `ICR1j0`;
 
     (async () => {
       logger.info?.(`Connecting to worker at ${workerWsURI}`);
