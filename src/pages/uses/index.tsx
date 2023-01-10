@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { Reflect } from "@rocicorp/reflect";
-import { Designer } from "../../frontend/designer";
-import { Nav } from "../../frontend/nav";
 import { M, clientMutators } from "../../datamodel/mutators";
 import { randUserInfo } from "../../datamodel/client-state";
 import { nanoid } from "nanoid";
@@ -12,7 +10,7 @@ import Uses from '../../frontend/uses'
 
 export default function Home() {
   const [reflect, setReflectClient] = useState<Reflect<M> | null>(null);
-  const [online, setOnline] = useState(false);
+  const [_, setOnline] = useState(false);
 
   const logSink = process.env.NEXT_PUBLIC_DATADOG_CLIENT_TOKEN
     ? new DataDogBrowserLogSink()
