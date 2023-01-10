@@ -9,6 +9,12 @@
 .header {
   font-size: 2rem;
 }
+
 .subHeader {
   color: #777A80;
+}
+
+.itemsList {
+  padding: 2rem;
+  text-align: left;
 }
