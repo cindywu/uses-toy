@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './uses.module.css'
-import { randomItem } from "../datamodel/item";
 import { useItemIDs } from "../datamodel/subscriptions";
 
 type UsesProps = {
