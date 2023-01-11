@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import styles from './uses.module.css'
 import { useItemByID, useItems, useUserIDs, useUserByID } from "../datamodel/subscriptions";
 import { randomItem, itemPrefix } from "../datamodel/item";
-import { randomUser, userPrefix } from "../datamodel/user";
+import { randomUser } from "../datamodel/user";
 
 type UsesProps = {
   reflect: any
