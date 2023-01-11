@@ -24,10 +24,14 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  /* padding: 1rem 3rem;
-  margin: 1rem; */
   padding: 1rem;
-  /* width: 100vw; */
+}
+
+.addUser {
+  position: fixed;
+  bottom: 4rem;
+  right: 0;
+  padding: 1rem;
 }
 
 .input {
