@@ -19,6 +19,11 @@ import {
   deleteItem,
   initItems,
 } from "./item";
+import {
+  putUser,
+  deleteUser,
+  updateUser,
+} from "./user";
 
 export type M = typeof serverMutators;
 
@@ -37,6 +42,9 @@ export const serverMutators = {
   createItem: putItem,
   deleteItem,
   initItems,
+  createUser: putUser,
+  deleteUser,
+  updateUser,
   nop: async (_: WriteTransaction) => {},
 };
 

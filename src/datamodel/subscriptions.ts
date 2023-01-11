@@ -3,7 +3,33 @@ import { useSubscribe } from "replicache-react";
 import { getClientState, clientStatePrefix } from "./client-state";
 import { getShape, shapePrefix } from "./shape";
 import { getItem, itemPrefix } from "./item";
+import { getUser, userPrefix } from "./user";
 import type { M } from "./mutators";
+
+export function useUserIDs(reflect: Reflect<M>) {
+  return useSubscribe(
+    reflect,
+    async (tx) => {
+      const users = (await tx
+        .scan({ prefix: userPrefix})
+        .keys()
+        .toArray()) as string[];
+      return users.map((k) => k.substring(userPrefix.length));
+    },
+    []
+  );
+}
+
+export function useUserByID(reflect: Reflect<M>, id: string) {
+  return useSubscribe(
+    reflect,
+    async (tx) => {
+      return await getUser(tx, id);
+    },
+    null
+  );
+}
+
 
 export function useItemIDs(reflect: Reflect<M>) {
   return useSubscribe(
@@ -39,6 +65,7 @@ export function useItems(reflect: Reflect<M>) {
     []
   )
 }
+
 
 export function useShapeIDs(reflect: Reflect<M>) {
   return useSubscribe(
