@@ -129,13 +129,14 @@ function Email({ reflect, userID, handleUpdateUser}: any) {
           handleSetShowEditUser={setShowEditUser}
           handleUpdateUser={handleUpdateUser}
           userID={userID}
+          reflect={reflect}
         />
       }
     </div>
   )
 }
 
-function EditUser({user, handleSetShowEditUser, handleUpdateUser, userID} : any){
+function EditUser({user, handleSetShowEditUser, handleUpdateUser, userID, reflect} : any){
   const [email, setEmail] = useState<string>(user.email)
   const [username, setUsername] = useState<string>(user.username)
 
@@ -171,6 +172,7 @@ function EditUser({user, handleSetShowEditUser, handleUpdateUser, userID} : any)
             value={username}
           />
         </div>
+        <button className={'pr-2'} onClick={() => reflect.mutate.deleteUser(userID) }>destroy user</button>
         <button onClick={() => handleSetShowEditUser(false)}>exit</button>
       </div>
     </>
