@@ -64,6 +64,15 @@ function UserItems({userID, items}: any){
       return bDate.getTime() - aDate.getTime()
     })
   }
+
+  if (filteredItems.length === 0) {
+    return (
+      <div className={'pt-2 pl-8'}>
+        No items yet
+      </div>
+    )
+  }
+
   return (
     <div className={'pt-2'}>
       {filteredItems.map((item: any) => {
