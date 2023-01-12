@@ -132,13 +132,14 @@ function Email({ reflect, userID, handleUpdateUser}: any) {
           handleUpdateUser={handleUpdateUser}
           userID={userID}
           reflect={reflect}
+          handleSetShowEdit={setShowEdit}
         />
       }
     </div>
   )
 }
 
-function EditUser({user, handleSetShowEditUser, handleUpdateUser, userID, reflect} : any){
+function EditUser({user, handleSetShowEditUser, handleUpdateUser, userID, reflect, handleSetShowEdit} : any){
   const [email, setEmail] = useState<string>(user.email)
   const [username, setUsername] = useState<string>(user.username)
 
@@ -154,8 +155,14 @@ function EditUser({user, handleSetShowEditUser, handleUpdateUser, userID, reflec
   }, [username, email])
 
   return(
-    <>
-      <div>edit user</div>
+    <div
+      className={'flex flex-col w-fit'}
+      onMouseEnter={handleSetShowEdit(false)}
+    >
+      <div className={'flex justify-between'}>
+        <div></div>
+        <button onClick={() => handleSetShowEditUser(false)}>&times;</button>
+      </div>
       <div>
         <div className={'pb-2'}>
           <input
@@ -181,10 +188,10 @@ function EditUser({user, handleSetShowEditUser, handleUpdateUser, userID, reflec
             disabled
           />
         </div>
-        <button className={'pr-2'} onClick={() => reflect.mutate.deleteUser(userID) }>destroy user</button>
-        <button onClick={() => handleSetShowEditUser(false)}>exit</button>
+        <button className={'pr-2 hover:text-red-400'} onClick={() => reflect.mutate.deleteUser(userID) }>destroy user</button>
+
       </div>
-    </>
+    </div>
   )
 
 
@@ -235,7 +242,9 @@ function Item({ reflect, itemID }: ItemProps) {
     item &&
     <div>
       {item.name}
-      {/* <button className={"ml-4"} onClick={() => reflect.mutate.deleteItem(itemID)}>Delete</button> */}
+      {/* <button className={"ml-4"} onClick={() => reflect.mutate.deleteItem(itemID)}>
+        Delete
+      </button> */}
     </div>
   )
 }
