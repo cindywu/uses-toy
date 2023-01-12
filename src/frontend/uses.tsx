@@ -3,6 +3,7 @@ import styles from './uses.module.css'
 import { useItemByID, useItems, useUserIDs, useUserByID } from "../datamodel/subscriptions";
 import { randomItem, itemPrefix } from "../datamodel/item";
 import { randomUser } from "../datamodel/user";
+import Link from 'next/link';
 
 type UsesProps = {
   reflect: any
@@ -51,7 +52,6 @@ export default function Uses({ reflect } : UsesProps) {
   }
 
   function handleUpdateUser({id, user}:any){
-    console.log('user', user)
     reflect.mutate.updateUser({id, user})
   }
 
@@ -114,7 +114,9 @@ function Email({ reflect, userID, handleUpdateUser}: any) {
       onMouseOver={() => setShowEdit(true)}
       onMouseLeave={() => setShowEdit(false)}
     >
-      <span className={"pr-2"}>{`/${user && user.username}`}</span>
+      <Link href={`/uses/${userID}`}>
+        <span className={"pr-2"}>{`${user && user.username}`}</span>
+      </Link>
       {showEdit &&
         <button
           className={"pl-1"}
@@ -170,6 +172,13 @@ function EditUser({user, handleSetShowEditUser, handleUpdateUser, userID, reflec
             placeholder={'username'}
             onChange={(e) => setUsername(e.target.value)}
             value={username}
+          />
+        </div>
+        <div className={'pb-2'}>
+          <input
+            className={'py-1 px-2 text-black'}
+            value={userID}
+            disabled
           />
         </div>
         <button className={'pr-2'} onClick={() => reflect.mutate.deleteUser(userID) }>destroy user</button>
