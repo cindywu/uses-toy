@@ -1,0 +1,48 @@
+.container {
+  padding-top: 4rem;
+  background-color: #252528;
+  height: 100vh;
+  color: #CED2D9;
+  /* text-align: center; */
+  overflow: auto;
+}
+
+.header {
+  font-size: 2rem;
+}
+
+.subHeader {
+  color: #777A80;
+}
+
+.itemsList {
+  padding: 2rem;
+  text-align: left;
+}
+
+.addItem {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+}
+
+.addUser {
+  position: fixed;
+  bottom: 4rem;
+  right: 0;
+  padding: 1rem;
+}
+
+.input {
+  padding: .5rem 1rem;
+  outline: none;
+  border: 1px solid transparent;
+  color: #252528;
+}
+
+.button {
+  padding: .5rem 1rem;
+  border: 1px solid transparent;
+  background-color: hsl(0, 0%, 40%);
+}

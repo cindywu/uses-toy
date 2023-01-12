@@ -59,7 +59,8 @@ export function useItems(reflect: Reflect<M>) {
   return useSubscribe(
     reflect,
     async(tx) => {
-      const items = await tx.scan({ prefix: itemPrefix }).entries().toArray();
+      const items = await tx.scan({prefix: itemPrefix }).entries().toArray();
+      console.log('useItems', items)
       return items
     },
     []

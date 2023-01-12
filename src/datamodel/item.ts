@@ -5,6 +5,7 @@ import { z } from "zod";
 export const itemSchema = z.object({
   name: z.string(),
   createdAt: z.string(),
+  createdBy: z.string(),
 });
 
 export type Item = z.infer<typeof itemSchema>;
@@ -26,6 +27,7 @@ export function putItem(
   tx: WriteTransaction,
   { id, item }: { id: string; item: Item }
 ): Promise<void> {
+  console.log('putItem', item)
   return tx.put(key(id), item);
 }
 
@@ -59,6 +61,7 @@ export function randomItem() {
     item: {
       name: "new item",
       createdAt: new Date().toISOString(),
+      createdBy: "anonymous",
     } as Item,
   };
 }
