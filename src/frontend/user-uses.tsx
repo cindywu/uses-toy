@@ -77,7 +77,7 @@ function UserItems({userID, items}: any){
     <div className={'pt-2'}>
       {filteredItems.map((item: any) => {
         return (
-          <div key={item[0]} className={'pl-8'}>
+          <div key={item[0]} className={'pl-8 select-text'}>
             {item[1].name}
           </div>
         )

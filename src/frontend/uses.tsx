@@ -240,7 +240,7 @@ function Item({ reflect, itemID }: ItemProps) {
   const item = useItemByID(reflect, itemID);
   return (
     item &&
-    <div>
+    <div className={'select-text'}>
       {item.name}
       {/* <button className={"ml-4"} onClick={() => reflect.mutate.deleteItem(itemID)}>
         Delete
