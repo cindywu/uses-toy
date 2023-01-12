@@ -52,21 +52,6 @@ export default function Home() {
   }
 
   return (
-    // <div
-    //   style={{
-    //     position: "absolute",
-    //     display: "flex",
-    //     flexDirection: "column",
-    //     left: 0,
-    //     top: 0,
-    //     width: "100%",
-    //     height: "100%",
-    //     background: "rgb(229,229,229)",
-    //   }}
-    // >
-    //   <Nav reflect={reflect} online={online} />
-    //   <Designer reflect={reflect} logger={logger} />
-    // </div>
     <Uses
       reflect={reflect}
     />
