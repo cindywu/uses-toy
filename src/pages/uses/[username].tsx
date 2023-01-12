@@ -11,6 +11,9 @@ import UserUses from '../../frontend/user-uses';
 export default function Home() {
   const [reflect, setReflectClient] = useState<Reflect<M> | null>(null);
   const [_, setOnline] = useState(false);
+  const [clientUserID, setClientUserID] = useState<string | null>(null);
+
+  const LOCAL_STORAGE_KEY = 'uses.userID'
 
   const logSink = process.env.NEXT_PUBLIC_DATADOG_CLIENT_TOKEN
     ? new DataDogBrowserLogSink()
@@ -22,7 +25,7 @@ export default function Home() {
 
     (async () => {
       logger.info?.(`Connecting to worker at ${workerWsURI}`);
-      const userID = nanoid();
+      const userID = clientUserID ? clientUserID : nanoid();
       const r = new Reflect<M>({
         socketOrigin: workerWsURI,
         onOnlineChange: setOnline,
@@ -46,6 +49,12 @@ export default function Home() {
       setReflectClient(r);
     })();
   }, []);
+
+  useEffect(() => {
+    const userID = localStorage.getItem(LOCAL_STORAGE_KEY)
+    if ( userID != null) setClientUserID(userID)
+  },[])
+
 
   if (!reflect) {
     return null;
