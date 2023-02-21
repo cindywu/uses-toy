@@ -72,6 +72,7 @@ function UserItems({userID, items}: any){
       </div>
     )
   }
+  // console.log('filteredItems', filteredItems)
 
   return (
     <div className={'pt-2'}>
