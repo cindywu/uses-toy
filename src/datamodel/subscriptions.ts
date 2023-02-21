@@ -1,12 +1,12 @@
-import type { Reflect } from "@rocicorp/reflect";
+// import type { Reflect } from "@rocicorp/reflect";
 import { useSubscribe } from "replicache-react";
 import { getClientState, clientStatePrefix } from "./client-state";
 import { getShape, shapePrefix } from "./shape";
 import { getItem, itemPrefix } from "./item";
 import { getUser, userPrefix } from "./user";
-import type { M } from "./mutators";
+// import type { M } from "./mutators";
 
-export function useUserIDs(reflect: Reflect<M>) {
+export function useUserIDs(reflect: any) {
   return useSubscribe(
     reflect,
     async (tx) => {
@@ -20,7 +20,7 @@ export function useUserIDs(reflect: Reflect<M>) {
   );
 }
 
-export function useUserByID(reflect: Reflect<M>, id: string) {
+export function useUserByID(reflect: any, id: string) {
   return useSubscribe(
     reflect,
     async (tx) => {
@@ -31,7 +31,7 @@ export function useUserByID(reflect: Reflect<M>, id: string) {
 }
 
 
-export function useItemIDs(reflect: Reflect<M>) {
+export function useItemIDs(reflect: any) {
   return useSubscribe(
     reflect,
     async (tx) => {
@@ -45,7 +45,7 @@ export function useItemIDs(reflect: Reflect<M>) {
   );
 }
 
-export function useItemByID(reflect: Reflect<M>, id: string) {
+export function useItemByID(reflect: any, id: string) {
   return useSubscribe(
     reflect,
     async (tx) => {
@@ -55,7 +55,7 @@ export function useItemByID(reflect: Reflect<M>, id: string) {
   );
 }
 
-export function useItems(reflect: Reflect<M>) {
+export function useItems(reflect: any) {
   return useSubscribe(
     reflect,
     async(tx) => {
@@ -68,7 +68,7 @@ export function useItems(reflect: Reflect<M>) {
 }
 
 
-export function useShapeIDs(reflect: Reflect<M>) {
+export function useShapeIDs(reflect: any) {
   return useSubscribe(
     reflect,
     async (tx) => {
@@ -82,7 +82,7 @@ export function useShapeIDs(reflect: Reflect<M>) {
   );
 }
 
-export function useShapeByID(reflect: Reflect<M>, id: string) {
+export function useShapeByID(reflect: any, id: string) {
   return useSubscribe(
     reflect,
     async (tx) => {
@@ -92,7 +92,7 @@ export function useShapeByID(reflect: Reflect<M>, id: string) {
   );
 }
 
-export function useUserInfo(reflect: Reflect<M>) {
+export function useUserInfo(reflect: any) {
   return useSubscribe(
     reflect,
     async (tx) => {
@@ -102,7 +102,7 @@ export function useUserInfo(reflect: Reflect<M>) {
   );
 }
 
-export function useOverShapeID(reflect: Reflect<M>) {
+export function useOverShapeID(reflect: any) {
   return useSubscribe(
     reflect,
     async (tx) => {
@@ -112,7 +112,7 @@ export function useOverShapeID(reflect: Reflect<M>) {
   );
 }
 
-export function useSelectedShapeID(reflect: Reflect<M>) {
+export function useSelectedShapeID(reflect: any) {
   return useSubscribe(
     reflect,
     async (tx) => {
@@ -122,7 +122,7 @@ export function useSelectedShapeID(reflect: Reflect<M>) {
   );
 }
 
-export function useCollaboratorIDs(reflect: Reflect<M>) {
+export function useCollaboratorIDs(reflect: any) {
   return useSubscribe(
     reflect,
     async (tx) => {
@@ -139,7 +139,7 @@ export function useCollaboratorIDs(reflect: Reflect<M>) {
   );
 }
 
-export function useClientInfo(reflect: Reflect<M>, clientID: string) {
+export function useClientInfo(reflect: any, clientID: string) {
   return useSubscribe(
     reflect,
     async (tx) => {
